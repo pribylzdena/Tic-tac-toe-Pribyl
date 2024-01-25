@@ -162,7 +162,7 @@ namespace Tic_tac_toe_Pribyl
             if (cr != Character.X && cr != Character.O)
             {
                 this.SetCurrentChar(this.PositionX, this.PositionY); //TODO tah Npc
-                this.SwitchPlayer();
+                this.SwitchPlayer(); // ahoj
             }
         }
         public void DrawCurrentPlayer()
