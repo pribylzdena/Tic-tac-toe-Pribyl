@@ -172,6 +172,7 @@ namespace Tic_tac_toe_Pribyl
             if (this.Player)
             {
                 Console.Write("Player1");
+                //ahoj
             }
             else
             {
