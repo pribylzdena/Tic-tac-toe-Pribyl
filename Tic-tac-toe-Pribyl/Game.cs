@@ -166,6 +166,8 @@ namespace Tic_tac_toe_Pribyl
                 Symbol newSymbol = this.SetCurrentChar(this.PositionX, this.PositionY);
                 this.SwitchPlayer();
                 this.GameFinished = this.CheckWin(newSymbol);
+                Console.SetCursorPosition(50, 10);
+                Console.Write(newSymbol.SymbolsColumns.Count);
             }
         }
         public void DrawCurrentPlayer()
@@ -184,8 +186,8 @@ namespace Tic_tac_toe_Pribyl
         }
         public bool CheckWin(Symbol symbol)
         {
-            return (symbol.SymbolsRow.Count + 1 >= this.Goal || symbol.SymbolsColumn.Count + 1 >= this.Goal
-                || symbol.SymbolsDiagonal.Count + 1 >= this.Goal || symbol.SymbolsAntidiagonal.Count + 1 >= this.Goal);
+            return (symbol.SymbolsColumns.Count >= this.Goal || symbol.SymbolsRows.Count >= this.Goal
+                || symbol.SymbolsDiagonal.Count >= this.Goal || symbol.SymbolsAntidiagonal.Count >= this.Goal);
         }
     //    public bool CheckRows()
     //    {
