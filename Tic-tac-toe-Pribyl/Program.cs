@@ -24,24 +24,9 @@ namespace Tic_tac_toe_Pribyl
             }
             Console.WriteLine();
 
-            Console.Write("Singleplayer[S]/Multiplayer[M]");
-            string str = "";
-            do
-            {
-                str = Console.ReadLine();
-            }
-            while (str != "S" && str != "M");
-
-            bool npc = false;
-            if (str == "M")
-            {
-                npc = true;
-            }
-
             Console.Clear();
-            Game game = new Game(side_length, npc);
+            Game game = new Game(side_length);
 
-            bool game_finished = false;
             while (true)
             {
                 game.DrawMove();
@@ -52,16 +37,12 @@ namespace Tic_tac_toe_Pribyl
                 {
                     break;
                 }
-                if (keyInfo.Key == ConsoleKey.Spacebar)
+                if (game.GameFinished)
                 {
-                    if (game.CheckArea())
-                    {
-                        game_finished = true;
-                        break;
-                    }
+                    break;
                 }
             }
-            if (game_finished)
+            if (game.GameFinished)
             {
                 string player;
                 if (game.Player)
