@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Tic_tac_toe_Pribyl
+﻿namespace Tic_tac_toe_Pribyl
 {
     public class Game
     {
@@ -167,7 +160,7 @@ namespace Tic_tac_toe_Pribyl
                 this.SwitchPlayer();
                 this.GameFinished = this.CheckWin(newSymbol);
                 Console.SetCursorPosition(50, 10);
-                Console.Write(newSymbol.SymbolsColumns.Count);
+                Console.Write(newSymbol.SymbolsDiagonals.Count);
             }
         }
         public void DrawCurrentPlayer()
@@ -187,170 +180,170 @@ namespace Tic_tac_toe_Pribyl
         public bool CheckWin(Symbol symbol)
         {
             return (symbol.SymbolsColumns.Count >= this.Goal || symbol.SymbolsRows.Count >= this.Goal
-                || symbol.SymbolsDiagonal.Count >= this.Goal || symbol.SymbolsAntidiagonal.Count >= this.Goal);
+                || symbol.SymbolsDiagonals.Count >= this.Goal || symbol.SymbolsAntidiagonals.Count >= this.Goal);
         }
-    //    public bool CheckRows()
-    //    {
-    //        for (int i = 0; i < this.Area.GetLength(0); i++)
-    //        {
-    //            int rep = 1;
-    //            Character prev_character = Character._;
-    //            for (int j = 0; j < this.Area.GetLength(1); j++)
-    //            {
-    //                Character character = this.Area[i, j];
-    //                if (character == Character._)
-    //                {
-    //                    rep = 1;
-    //                    continue;
-    //                }
-    //                if (character == prev_character)
-    //                {
-    //                    rep += 1;
-    //                }
-    //                else
-    //                {
-    //                    rep = 1;
-    //                }
-    //                if (rep >= this.Goal)
-    //                {
-    //                    return true;
-    //                }
-    //                prev_character = character;
+        //    public bool CheckRows()
+        //    {
+        //        for (int i = 0; i < this.Area.GetLength(0); i++)
+        //        {
+        //            int rep = 1;
+        //            Character prev_character = Character._;
+        //            for (int j = 0; j < this.Area.GetLength(1); j++)
+        //            {
+        //                Character character = this.Area[i, j];
+        //                if (character == Character._)
+        //                {
+        //                    rep = 1;
+        //                    continue;
+        //                }
+        //                if (character == prev_character)
+        //                {
+        //                    rep += 1;
+        //                }
+        //                else
+        //                {
+        //                    rep = 1;
+        //                }
+        //                if (rep >= this.Goal)
+        //                {
+        //                    return true;
+        //                }
+        //                prev_character = character;
 
-    //            }
-    //        }
-    //        return false;
-    //    }
-    //    public bool CheckColumns()
-    //    {
-    //        for (int i = 0; i < this.Area.GetLength(1); i++)
-    //        {
-    //            int rep = 1;
-    //            Character prev_character = Character._;
-    //            for (int j = 0; j < this.Area.GetLength(0); j++)
-    //            {
-    //                Character character = this.Area[j, i];
-    //                if (character == Character._)
-    //                {
-    //                    rep = 1;
-    //                    continue;
-    //                }
-    //                if (character == prev_character)
-    //                {
-    //                    rep += 1;
-    //                }
-    //                else
-    //                {
-    //                    rep = 1;
-    //                }
-    //                if (rep >= this.Goal)
-    //                {
-    //                    return true;
-    //                }
-    //                prev_character = character;
+        //            }
+        //        }
+        //        return false;
+        //    }
+        //    public bool CheckColumns()
+        //    {
+        //        for (int i = 0; i < this.Area.GetLength(1); i++)
+        //        {
+        //            int rep = 1;
+        //            Character prev_character = Character._;
+        //            for (int j = 0; j < this.Area.GetLength(0); j++)
+        //            {
+        //                Character character = this.Area[j, i];
+        //                if (character == Character._)
+        //                {
+        //                    rep = 1;
+        //                    continue;
+        //                }
+        //                if (character == prev_character)
+        //                {
+        //                    rep += 1;
+        //                }
+        //                else
+        //                {
+        //                    rep = 1;
+        //                }
+        //                if (rep >= this.Goal)
+        //                {
+        //                    return true;
+        //                }
+        //                prev_character = character;
 
-    //            }
-    //        }
-    //        return false;
-    //    }
-    //    public bool CheckDiagonal()
-    //    {
+        //            }
+        //        }
+        //        return false;
+        //    }
+        //    public bool CheckDiagonal()
+        //    {
 
 
-    //        int x;
-    //        for (int i = 0; i < this.Area.GetLength(0); i++)
-    //        {
-    //            int rep = 1;
-    //            Character prev_character = Character._;
+        //        int x;
+        //        for (int i = 0; i < this.Area.GetLength(0); i++)
+        //        {
+        //            int rep = 1;
+        //            Character prev_character = Character._;
 
-    //            x = 1;
-    //            for (int j = 0; x > 0; j++)
-    //            {
-    //                x = i - j;
-    //                Character character = this.Area[x, j];
-    //                if (character == Character._)
-    //                {
-    //                    rep = 1;
-    //                    continue;
-    //                }
-    //                if (character == prev_character)
-    //                {
-    //                    rep += 1;
-    //                }
-    //                else
-    //                {
-    //                    rep = 1;
-    //                }
-    //                if (rep >= this.Goal)
-    //                {
-    //                    return true;
-    //                }
-    //                prev_character = character;
-    //            }
-    //        }
-    //        for (int i = 0; i < this.Area.GetLength(1); i++)
-    //        {
-    //            x = i;
-    //            int rep = 1;
-    //            Character prev_character = Character._;
-    //            for (int j = this.Area.GetLength(0) - 1; j >= 0; j--)
-    //            {
-    //                if (i < this.Area.GetLength(1) && x < this.Area.GetLength(0))
-    //                {
-    //                    Character character = this.Area[j, x];
-    //                    if (character == Character._)
-    //                    {
-    //                        rep = 1;
-    //                        continue;
-    //                    }
-    //                    if (character == prev_character)
-    //                    {
-    //                        rep += 1;
-    //                    }
-    //                    else
-    //                    {
-    //                        rep = 1;
-    //                    }
-    //                    if (rep >= this.Goal)
-    //                    {
-    //                        return true;
-    //                    }
-    //                    prev_character = character;
-    //                }
-    //                x++;
-    //            }
-    //        }
+        //            x = 1;
+        //            for (int j = 0; x > 0; j++)
+        //            {
+        //                x = i - j;
+        //                Character character = this.Area[x, j];
+        //                if (character == Character._)
+        //                {
+        //                    rep = 1;
+        //                    continue;
+        //                }
+        //                if (character == prev_character)
+        //                {
+        //                    rep += 1;
+        //                }
+        //                else
+        //                {
+        //                    rep = 1;
+        //                }
+        //                if (rep >= this.Goal)
+        //                {
+        //                    return true;
+        //                }
+        //                prev_character = character;
+        //            }
+        //        }
+        //        for (int i = 0; i < this.Area.GetLength(1); i++)
+        //        {
+        //            x = i;
+        //            int rep = 1;
+        //            Character prev_character = Character._;
+        //            for (int j = this.Area.GetLength(0) - 1; j >= 0; j--)
+        //            {
+        //                if (i < this.Area.GetLength(1) && x < this.Area.GetLength(0))
+        //                {
+        //                    Character character = this.Area[j, x];
+        //                    if (character == Character._)
+        //                    {
+        //                        rep = 1;
+        //                        continue;
+        //                    }
+        //                    if (character == prev_character)
+        //                    {
+        //                        rep += 1;
+        //                    }
+        //                    else
+        //                    {
+        //                        rep = 1;
+        //                    }
+        //                    if (rep >= this.Goal)
+        //                    {
+        //                        return true;
+        //                    }
+        //                    prev_character = character;
+        //                }
+        //                x++;
+        //            }
+        //        }
 
-    //        for (int i = 0; i <= this.Area.GetLength(1) - 1; i++)
-    //        {
-    //            x = i;
-    //            int rep = 1;
-    //            Character prev_character = Character._;
-    //            for (int j = this.Area.GetLength(0) - 1; x >= 0 && j >= 0; j--)
-    //            {
-    //                Character character = this.Area[j, x];
-    //                if (character == Character._)
-    //                {
-    //                    rep = 1;
-    //                    continue;
-    //                }
-    //                if (character == prev_character)
-    //                {
-    //                    rep += 1;
-    //                }
-    //                else
-    //                {
-    //                    rep = 1;
-    //                }
-    //                if (rep >= this.Goal)
-    //                {
-    //                    return true;
-    //                }
-    //                prev_character = character;
-    //                x--;
-    //            }
-    //        }
-    //        return false;
-    //    }
+        //        for (int i = 0; i <= this.Area.GetLength(1) - 1; i++)
+        //        {
+        //            x = i;
+        //            int rep = 1;
+        //            Character prev_character = Character._;
+        //            for (int j = this.Area.GetLength(0) - 1; x >= 0 && j >= 0; j--)
+        //            {
+        //                Character character = this.Area[j, x];
+        //                if (character == Character._)
+        //                {
+        //                    rep = 1;
+        //                    continue;
+        //                }
+        //                if (character == prev_character)
+        //                {
+        //                    rep += 1;
+        //                }
+        //                else
+        //                {
+        //                    rep = 1;
+        //                }
+        //                if (rep >= this.Goal)
+        //                {
+        //                    return true;
+        //                }
+        //                prev_character = character;
+        //                x--;
+        //            }
+        //        }
+        //        return false;
+        //    }
     }
 }

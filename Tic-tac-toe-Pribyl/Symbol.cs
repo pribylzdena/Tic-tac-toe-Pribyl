@@ -4,8 +4,8 @@
     {
         public List<Symbol> SymbolsColumns { get; set; }
         public List<Symbol> SymbolsRows { get; set; }
-        public List<Symbol> SymbolsDiagonal { get; set; }
-        public List<Symbol> SymbolsAntidiagonal { get; set; }
+        public List<Symbol> SymbolsDiagonals { get; set; }
+        public List<Symbol> SymbolsAntidiagonals { get; set; }
         public int PositionX { get; set; }
         public int PositionY { get; set; }
         public List<Symbol> Symbols { get; set; }
@@ -16,8 +16,8 @@
             this.Symbols = new List<Symbol>();
             this.SymbolsColumns = new List<Symbol>();
             this.SymbolsRows = new List<Symbol>();
-            this.SymbolsDiagonal = new List<Symbol>();
-            this.SymbolsAntidiagonal = new List<Symbol>();
+            this.SymbolsDiagonals = new List<Symbol>();
+            this.SymbolsAntidiagonals = new List<Symbol>();
             this.SymbolType = character;
             PositionX = positionX;
             PositionY = positionY;  
@@ -49,63 +49,66 @@
                 {
                     this.SymbolsRows.Add(symbol);
                 }
-                else if (Math.Abs(this.PositionX - symbol.PositionX) == Math.Abs(this.PositionY - symbol.PositionY))
+                else if (this.PositionX - symbol.PositionX == this.PositionY - symbol.PositionY)
                 {
-                    this.SymbolsDiagonal.Add(symbol);
+                    this.SymbolsDiagonals.Add(symbol);
                 }
                 else
                 {
-                    this.SymbolsAntidiagonal.Add(symbol);
+                    this.SymbolsAntidiagonals.Add(symbol);
                 }
             }
         }
         public void SetSymbols()
         {
-            List<Symbol> same_symbols_in_column = new List<Symbol>();
-            foreach (Symbol symbol in this.SymbolsColumns)
-            {
-                foreach (Symbol item in symbol.SymbolsColumns)
-                {
-                    same_symbols_in_column.Add(item);
-                }
-                same_symbols_in_column.Add(symbol);
-                same_symbols_in_column.Add(this);
-                symbol.SymbolsColumns = same_symbols_in_column;
-            }
-            this.SymbolsColumns = same_symbols_in_column;
+            this.SetSymbolsInColumns();
 
-            List<Symbol> same_symbols_in_row = new List<Symbol>();
+            List<Symbol> same_symbols_in_row = new List<Symbol> { this };
             foreach (Symbol symbol in this.SymbolsRows)
             {
                 foreach (Symbol item in symbol.SymbolsRows)
                 {
                     same_symbols_in_row.Add(item);
                 }
-                same_symbols_in_row.Add(symbol);
+                symbol.SymbolsRows = same_symbols_in_row;
             }
             this.SymbolsRows = same_symbols_in_row;
 
-            List<Symbol> same_symbols_in_diagonal = new List<Symbol>();
-            foreach (Symbol symbol in this.SymbolsDiagonal)
+            List<Symbol> same_symbols_in_diagonal = new List<Symbol> { this };
+            foreach (Symbol symbol in this.SymbolsDiagonals)
             {
-                foreach (Symbol item in symbol.SymbolsDiagonal)
+                foreach (Symbol item in symbol.SymbolsDiagonals)
                 {
                     same_symbols_in_diagonal.Add(item);
                 }
-                same_symbols_in_diagonal.Add(symbol);
+                symbol.SymbolsDiagonals = same_symbols_in_diagonal;
             }
-            this.SymbolsDiagonal = same_symbols_in_diagonal;
+            this.SymbolsDiagonals = same_symbols_in_diagonal;
 
-            List<Symbol> same_symbols_in_antidiagonal = new List<Symbol>();
-            foreach (Symbol symbol in this.SymbolsAntidiagonal)
+            List<Symbol> same_symbols_in_antidiagonal = new List<Symbol> { this };
+            foreach (Symbol symbol in this.SymbolsAntidiagonals)
             {
-                foreach (Symbol item in symbol.SymbolsAntidiagonal)
+                foreach (Symbol item in symbol.SymbolsAntidiagonals)
                 {
                     same_symbols_in_antidiagonal.Add(item);
                 }
-                same_symbols_in_antidiagonal.Add(symbol);
+                symbol.SymbolsAntidiagonals = same_symbols_in_antidiagonal;
             }
-            this.SymbolsAntidiagonal = same_symbols_in_antidiagonal;
+            this.SymbolsAntidiagonals = same_symbols_in_antidiagonal;
+        }
+        public void SetSymbolsInColumns()
+        {
+            List<Symbol> same_symbols_in_column = new List<Symbol>();
+            foreach (Symbol symbol in this.SymbolsColumns)
+            {   
+                symbol.SetSymbolsInColumns();
+            }
+            this.SymbolsColumns = same_symbols_in_column;
         }
     }
+    //foreach (Symbol item in symbol.SymbolsColumns)
+    //{
+    //    same_symbols_in_column.Add(item);
+    //}
+    //symbol.SymbolsColumns = same_symbols_in_column;
 }
