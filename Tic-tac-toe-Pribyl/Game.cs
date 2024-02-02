@@ -160,7 +160,7 @@
                 this.SwitchPlayer();
                 this.GameFinished = this.CheckWin(newSymbol);
                 Console.SetCursorPosition(50, 10);
-                Console.Write(newSymbol.SymbolsDiagonals.Count);
+                Console.Write(newSymbol.SymbolsRows.Count);
             }
         }
         public void DrawCurrentPlayer()
