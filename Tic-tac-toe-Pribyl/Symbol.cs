@@ -111,7 +111,6 @@
                         this.SymbolsDiagonals.Add(this.SymbolsDiagonals[i].SymbolsDiagonals[j]);
                         SymbolsDiagonals[i].SymbolsDiagonals[j].SymbolsDiagonals = this.SymbolsDiagonals;
                     }
-                    //TODO
                 }
             }
         }
@@ -127,7 +126,6 @@
                         this.SymbolsAntidiagonals.Add(this.SymbolsAntidiagonals[i].SymbolsAntidiagonals[j]);
                         SymbolsAntidiagonals[i].SymbolsAntidiagonals[j].SymbolsAntidiagonals = this.SymbolsAntidiagonals;
                     }
-                    //TODO
                 }
             }
         }
