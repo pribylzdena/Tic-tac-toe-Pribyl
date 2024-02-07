@@ -16,12 +16,13 @@ namespace Tic_tac_toe_Pribyl
         }
         public void DrawArea()
         {
-            for (int i = 0; i < this.Area.GetLength(1); i++)
-            {
-                this.DrawEdge();
-                this.DrawRow();
-            }
-            this.DrawEdge();
+            this.DrawNewArea();
+            //for (int i = 0; i < this.Area.GetLength(1); i++)
+            //{
+            //    this.DrawEdge();
+            //    this.DrawRow();
+            //}
+            //this.DrawEdge();
         }
         public void DrawEdge()
         {
@@ -40,46 +41,58 @@ namespace Tic_tac_toe_Pribyl
             }
             Console.WriteLine("|");
         }
-        //public void DrawNewArea()
-        //{
-        //    string ahoj = "┌┐─│└┘├┬┴┼";
-        //    Console.Write("┌");
-        //    for (int i = 0; i < this.Area.GetLength(1) - 1; i++)
-        //    {
-        //        if (i < this.Area.GetLength(1)-2) 
-        //        {
-        //            Console.Write("───┬");
-        //        }
-        //        else
-        //        {
-        //            Console.Write("───");
-        //        }
-        //    }
-        //    Console.WriteLine("┐");
+        public void DrawNewArea()
+        {
+            string ahoj = "┌┐─│└┘├┬┴┼┤";
+            Console.Write("┌");
+            for (int i = 0; i < this.Area.GetLength(1) - 1; i++)
+            {
+                if (i < this.Area.GetLength(1) - 2)
+                {
+                    Console.Write("───┬");
+                }
+                else
+                {
+                    Console.Write("───┤");
+                }
+            }
+            Console.WriteLine("┐");
 
-        //    for (int i = 0; i < this.Area.GetLength(1); i++)
-        //    {
-        //        for (int j = 0; j < this.Area.GetLength(0)-1; j++)
-        //        {
-        //            Console.Write("│ " + Character._ + " ");
-        //            Console.Write("├──┼");
-        //        }
-        //        Console.WriteLine("│");
-        //    }
+            for (int i = 0; i < this.Area.GetLength(1); i++)
+            {
+                for (int j = 0; j < this.Area.GetLength(0) - 1; j++)
+                {
+                    Console.Write("│ " + Character._ + " ");
+                }
+                Console.WriteLine("│");
+                for (int j = 0; j < this.Area.GetLength(0) - 1; j++)
+                {
+                    if (j < this.Area.GetLength(0) - 2)
+                    {
+                        Console.Write("├──┼");
+                    }
+                    else
+                    {
+                        Console.Write("──");
 
-        //    Console.Write("└");
-        //    for (int i = 0; i < this.Area.GetLength(1) - 1; i++)
-        //    {
-        //        if (i < this.Area.GetLength(1) - 2)
-        //        {
-        //            Console.Write("───┴");
-        //        }
-        //        else
-        //        {
-        //            Console.Write("───");
-        //        }
-        //    }
-        //    Console.WriteLine("┘");
-        //}
+                    }
+                }
+                Console.WriteLine();
+            }
+
+            Console.Write("└");
+            for (int i = 0; i < this.Area.GetLength(1) - 1; i++)
+            {
+                if (i < this.Area.GetLength(1) - 2)
+                {
+                    Console.Write("───┴");
+                }
+                else
+                {
+                    Console.Write("───");
+                }
+            }
+            Console.WriteLine("┘");
+        }
     }
 }
