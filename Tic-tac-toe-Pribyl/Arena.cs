@@ -39,10 +39,10 @@ namespace Tic_tac_toe_Pribyl
                 Console.Write("| " + Character._ + " ");
             }
             Console.WriteLine("|");
-            string ahoj = "┌┐─│└┘├┬┴┼";
         }
         //public void DrawNewArea()
         //{
+        //    string ahoj = "┌┐─│└┘├┬┴┼";
         //    Console.Write("┌");
         //    for (int i = 0; i < this.Area.GetLength(1) - 1; i++)
         //    {
