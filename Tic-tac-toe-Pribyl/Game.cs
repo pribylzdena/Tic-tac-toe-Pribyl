@@ -159,8 +159,6 @@
                 Symbol newSymbol = this.SetCurrentChar(this.PositionX, this.PositionY);
                 this.SwitchPlayer();
                 this.GameFinished = this.CheckWin(newSymbol);
-                Console.SetCursorPosition(50, 10);
-                Console.Write(newSymbol.SymbolsRows.Count);
             }
         }
         public void DrawCurrentPlayer()
