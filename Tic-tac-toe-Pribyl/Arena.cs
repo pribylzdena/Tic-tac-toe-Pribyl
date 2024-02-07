@@ -39,6 +39,47 @@ namespace Tic_tac_toe_Pribyl
                 Console.Write("| " + Character._ + " ");
             }
             Console.WriteLine("|");
+            string ahoj = "┌┐─│└┘├┬┴┼";
         }
+        //public void DrawNewArea()
+        //{
+        //    Console.Write("┌");
+        //    for (int i = 0; i < this.Area.GetLength(1) - 1; i++)
+        //    {
+        //        if (i < this.Area.GetLength(1)-2) 
+        //        {
+        //            Console.Write("───┬");
+        //        }
+        //        else
+        //        {
+        //            Console.Write("───");
+        //        }
+        //    }
+        //    Console.WriteLine("┐");
+
+        //    for (int i = 0; i < this.Area.GetLength(1); i++)
+        //    {
+        //        for (int j = 0; j < this.Area.GetLength(0)-1; j++)
+        //        {
+        //            Console.Write("│ " + Character._ + " ");
+        //            Console.Write("├──┼");
+        //        }
+        //        Console.WriteLine("│");
+        //    }
+
+        //    Console.Write("└");
+        //    for (int i = 0; i < this.Area.GetLength(1) - 1; i++)
+        //    {
+        //        if (i < this.Area.GetLength(1) - 2)
+        //        {
+        //            Console.Write("───┴");
+        //        }
+        //        else
+        //        {
+        //            Console.Write("───");
+        //        }
+        //    }
+        //    Console.WriteLine("┘");
+        //}
     }
 }
