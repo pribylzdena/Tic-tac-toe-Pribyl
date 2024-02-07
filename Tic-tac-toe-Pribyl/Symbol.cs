@@ -77,7 +77,6 @@
                         this.SymbolsColumns.Add(this.SymbolsColumns[i].SymbolsColumns[j]);
                         SymbolsColumns[i].SymbolsColumns[j].SymbolsColumns = this.SymbolsColumns;
                     }
-                    //TODO
                 }
             }
         }
